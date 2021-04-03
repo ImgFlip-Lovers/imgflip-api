@@ -28,5 +28,5 @@ Go to http://localhost:8080/swagger-ui.html
 Some meme templates :
 
 - `/memes/`
-- `/memes/top/10/`
+- Get the top `10` meme templates : `/memes/top/10/`
 - `/memes/112126428/`
