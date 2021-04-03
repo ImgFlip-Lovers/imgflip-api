@@ -25,8 +25,21 @@ Go to http://localhost:8080/swagger-ui.html
 
 ## :bookmark_tabs:Endpoint samples
 
-Some meme templates :
+### Meme templates
 
 - `/memes/`
 - Get the top `10` meme templates : `/memes/top/10/`
 - `/memes/112126428/`
+
+### Published memes
+
+Hot memes : `/hot/{stream}?page=n`
+
+Examples :
+
+- `https://imgflip.com/?page=2`
+- `https://imgflip.com/`
+- `http://localhost:8080/hot?page=2`
+- `http://localhost:8080/hot`
+- `http://localhost:8080/hot/politics?page=3`
+- `http://localhost:8080/hot/politics`
