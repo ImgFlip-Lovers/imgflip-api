@@ -1,10 +1,14 @@
 # Getting Started
 
+Build and run API locally :
+
 ```
 git clone https://github.com/adriens/imgflip-api.git
-cd imgflip-api.git
+cd imgflip-api
 mvn spring-boot:run
 ```
+Docker image is coming soon.
+
 # Documentation
 
 ## Swagger
