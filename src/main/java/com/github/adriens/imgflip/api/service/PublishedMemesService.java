@@ -60,5 +60,14 @@ public class PublishedMemesService {
         String targetUrl = ImgFlipURLHelper.getPathOfTopLastYear(stream, page);
         return PublishedMemesCrawler.getPublishedMemes(targetUrl);
     }
+    // custom year monthe queries
+    public List<PublishedMeme> getTopDefaultYearHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopLastYear(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
+    public List<PublishedMeme> getTopYearMonthHotStream(String stream, int year, int month, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopOfMonthOfYear(stream, year, month, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
     
 }

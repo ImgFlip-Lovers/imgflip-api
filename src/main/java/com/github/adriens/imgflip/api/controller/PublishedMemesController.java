@@ -70,5 +70,28 @@ public class PublishedMemesController {
         return publishedMemesService.getTopLastYearPageOfHotStream(stream, page);
     }
     
-    
+    // specific year and monthe queries
+    @GetMapping("/top/{stream}/query")
+    public List<PublishedMeme> getTopLastYear(@PathVariable String stream,
+            @RequestParam(value="year", defaultValue = "0") int year,
+            @RequestParam(value="month", defaultValue = "0") int month,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        
+        if(year == 0){
+        //return default year
+            return publishedMemesService.getTopDefaultYearHotStream(stream, page);
+        }
+        else{
+            // we got a year
+            if(month == 0){
+                // return defaumlt year
+                return publishedMemesService.getTopDefaultYearHotStream(stream, page);
+            }
+            else{
+                // we got a month
+                return publishedMemesService.getTopYearMonthHotStream(stream, year, month, page);
+            }
+        }
+        
+    }
 }
