@@ -56,4 +56,19 @@ public class PublishedMemesController {
             @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
         return publishedMemesService.getTopThirtyDayPageOfHotStream(stream, page);
     }
+    // /top/{stream}/last/month
+    @GetMapping("/top/{stream}/last/month")
+    public List<PublishedMeme> getTopLastMonth(@PathVariable String stream,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        return publishedMemesService.getTopLastMonthPageOfHotStream(stream, page);
+    }
+    
+    // /top/{stream}/last/year
+    @GetMapping("/top/{stream}/last/year")
+    public List<PublishedMeme> getTopLastYear(@PathVariable String stream,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        return publishedMemesService.getTopLastYearPageOfHotStream(stream, page);
+    }
+    
+    
 }

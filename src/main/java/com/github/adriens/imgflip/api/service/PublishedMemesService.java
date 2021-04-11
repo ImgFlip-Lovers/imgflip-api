@@ -50,4 +50,15 @@ public class PublishedMemesService {
         String targetUrl = ImgFlipURLHelper.getPathOfTopThirtyDays(stream, page);
         return PublishedMemesCrawler.getPublishedMemes(targetUrl);
     }
+    // last month filter
+    public List<PublishedMeme> getTopLastMonthPageOfHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopLastMonth(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
+    // last year filter
+    public List<PublishedMeme> getTopLastYearPageOfHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopLastYear(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
+    
 }
