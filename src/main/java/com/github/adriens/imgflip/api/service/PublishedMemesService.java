@@ -5,6 +5,7 @@
  */
 package com.github.adriens.imgflip.api.service;
 
+import com.github.adriens.imgflip.sdk.imgflip.sdk.ImgFlipURLHelper;
 import com.github.adriens.imgflip.sdk.imgflip.sdk.PublishedMeme;
 import com.github.adriens.imgflip.sdk.imgflip.sdk.PublishedMemesCrawler;
 import java.io.IOException;
@@ -33,5 +34,15 @@ public class PublishedMemesService {
     public List<PublishedMeme> getPageOfHotStream() throws IOException{
         return PublishedMemesCrawler.getPublishedMemes();
     }
-    
+    // top filters
+    // 1d filter
+    public List<PublishedMeme> getTopOneDayPageOfHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopOneDay(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
+    // 17d filter
+    public List<PublishedMeme> getTopSevenDayPageOfHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopSevendays(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
 }

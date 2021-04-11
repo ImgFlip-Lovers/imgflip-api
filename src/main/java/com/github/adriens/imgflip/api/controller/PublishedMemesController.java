@@ -5,10 +5,7 @@
  */
 package com.github.adriens.imgflip.api.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.adriens.imgflip.api.service.MemesService;
 import com.github.adriens.imgflip.api.service.PublishedMemesService;
-import com.github.adriens.imgflip.sdk.imgflip.sdk.Meme;
 import com.github.adriens.imgflip.sdk.imgflip.sdk.PublishedMeme;
 import java.io.IOException;
 import java.util.List;
@@ -38,5 +35,19 @@ public class PublishedMemesController {
     @GetMapping("/hot")
     public List<PublishedMeme> getMemes(@RequestParam(value="page", defaultValue = "1") int page) throws IOException{
         return publishedMemesService.getPageOfHotStream(page);
+    }
+    
+    // Top stream queries
+    // /top/{stream}/last/1d
+    @GetMapping("/top/{stream}/last/1d")
+    public List<PublishedMeme> getTop1d(@PathVariable String stream,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        return publishedMemesService.getTopOneDayPageOfHotStream(stream, page);
+    }
+    // /top/{stream}/last/7d
+    @GetMapping("/top/{stream}/last/7d")
+    public List<PublishedMeme> getTop7d(@PathVariable String stream,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        return publishedMemesService.getTopSevenDayPageOfHotStream(stream, page);
     }
 }
