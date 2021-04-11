@@ -40,9 +40,14 @@ public class PublishedMemesService {
         String targetUrl = ImgFlipURLHelper.getPathOfTopOneDay(stream, page);
         return PublishedMemesCrawler.getPublishedMemes(targetUrl);
     }
-    // 17d filter
+    // 7d filter
     public List<PublishedMeme> getTopSevenDayPageOfHotStream(String stream, int page) throws IOException{
         String targetUrl = ImgFlipURLHelper.getPathOfTopSevendays(stream, page);
+        return PublishedMemesCrawler.getPublishedMemes(targetUrl);
+    }
+    // 30d filter
+    public List<PublishedMeme> getTopThirtyDayPageOfHotStream(String stream, int page) throws IOException{
+        String targetUrl = ImgFlipURLHelper.getPathOfTopThirtyDays(stream, page);
         return PublishedMemesCrawler.getPublishedMemes(targetUrl);
     }
 }

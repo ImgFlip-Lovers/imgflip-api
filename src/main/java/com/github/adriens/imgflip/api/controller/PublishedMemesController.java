@@ -50,4 +50,10 @@ public class PublishedMemesController {
             @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
         return publishedMemesService.getTopSevenDayPageOfHotStream(stream, page);
     }
+    // /top/{stream}/last/30d
+    @GetMapping("/top/{stream}/last/30d")
+    public List<PublishedMeme> getTop30d(@PathVariable String stream,
+            @RequestParam(value="page", defaultValue = "1") int page) throws IOException{
+        return publishedMemesService.getTopThirtyDayPageOfHotStream(stream, page);
+    }
 }
