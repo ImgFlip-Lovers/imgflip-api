@@ -21,7 +21,7 @@ mvn spring-boot:run
 
 ## :page_with_curl: Swagger
 
-Go to http://localhost:8080/swagger-ui.html
+Go to http://localhost:8080/
 
 ## :bookmark_tabs:Endpoint samples
 
