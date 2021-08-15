@@ -28,19 +28,104 @@ Go to <http://localhost:8080/>
 
 ### Meme templates
 
-- `/memes/`
-- Get the top `10` meme templates : `/memes/top/10/`
-- `/memes/112126428/`
+* Memes :  `http://localhost:8080/memes`
+
+```sh
+$ http :8080/memes/
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+    {
+        "box_count": 2,
+        "height": 1200,
+        "id": 181913649,
+        "name": "Drake Hotline Bling",
+        "url": "https://i.imgflip.com/30b1gx.jpg",
+        "width": 1200
+    },
+    ...
+]
+```
+
+* Get the top `10` meme templates : `http://localhost:8080/memes/top/10/`
+
+```sh
+$ http :8080/memes/top/3
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+    {
+        "box_count": 2,
+        "height": 1200,
+        "id": 181913649,
+        "name": "Drake Hotline Bling",
+        "url": "https://i.imgflip.com/30b1gx.jpg",
+        "width": 1200
+    },
+    {
+        "box_count": 3,
+        "height": 908,
+        "id": 87743020,
+        "name": "Two Buttons",
+        "url": "https://i.imgflip.com/1g8my4.jpg",
+        "width": 600
+    },
+    {
+        "box_count": 3,
+        "height": 800,
+        "id": 112126428,
+        "name": "Distracted Boyfriend",
+        "url": "https://i.imgflip.com/1ur9b0.jpg",
+        "width": 1200
+    }
+]
+```
+
+- Get Meme by ID : `http://localhost:8080/memes/112126428/`
+
+```sh
+$ http :8080/memes/112126428
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+    "box_count": 3,
+    "height": 800,
+    "id": 112126428,
+    "name": "Distracted Boyfriend",
+    "url": "https://i.imgflip.com/1ur9b0.jpg",
+    "width": 1200
+}
+```
 
 ### Published memes
 
-Hot memes : `/hot/{stream}?page=n`
+* Get hot politics memes : `http://localhost:8080/hot/politics?page=2`
 
-Examples :
+```sh
+$ http :8080/hot/gaming?page=2
+HTTP/1.1 200
+Content-Type: application/json
 
-- `https://imgflip.com/?page=2`
-- `https://imgflip.com/`
-- `http://localhost:8080/hot?page=2`
-- `http://localhost:8080/hot`
-- `http://localhost:8080/hot/politics?page=3`
-- `http://localhost:8080/hot/politics`
+[
+    {
+        "author": "VinceVance",
+        "authorPath": "/user/VinceVance",
+        "imageUrl": "https://i.imgflip.com/5jbb6n.jpg",
+        "memeUrl": "https://imgflip.com/i/5jbb6n",
+        "mp4Url": null,
+        "posterUrl": null,
+        "rawScore": null,
+        "score": {
+            "nbComments": 3,
+            "nbUpvotes": 38,
+            "nbViews": 378
+        },
+        "title": "The millions we make here in the USA isn't enough...",
+        "webmUrl": null
+    },
+    ...
+]
+```
