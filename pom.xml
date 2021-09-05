@@ -18,6 +18,8 @@
         <logback.version>1.2.3</logback.version>
         <springdoc-openapi-ui.version>1.4.8</springdoc-openapi-ui.version>
         <imgflip4j.version>2.1</imgflip4j.version>
+        <docker.from>openjdk:8-jdk-alpine</docker.from>
+        <docker.to>imgflip-lovers/imgflip-api</docker.to>
     </properties>
     <repositories>
         <repository>
@@ -71,6 +73,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.1.4</version>
+                <configuration>
+                    <from>
+                        <image>${docker.from}</image>
+                    </from>
+                    <to>
+                        <image>${docker.to}</image>
+                    </to>
+                </configuration>
             </plugin>
         </plugins>
     </build>

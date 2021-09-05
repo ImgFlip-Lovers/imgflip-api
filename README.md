@@ -8,7 +8,7 @@ This API should open a variety of fun usages around Imgflip.
 
 ## :rocket: Getting Started
 
-### :computer: Build and run API locally
+### Build and run API locally
 
 ```
 git clone https://github.com/adriens/imgflip-api.git
@@ -16,7 +16,25 @@ cd imgflip-api
 mvn spring-boot:run
 ```
 
-:whale: Docker image is coming soon.
+### Using docker
+
+:whale: Docker image _(on [dockerhub](https://hub.docker.com/))_ is coming soon.
+
+#### Build image locally
+
+We use the :building_construction: [jib](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) maven plugin from Google [GoogleContainerTools/jib](https://github.com/GoogleContainerTools/jib) to build the base image.
+
+```sh
+git clone https://github.com/adriens/imgflip-api.git
+cd imgflip-api
+mvn compile jib:dockerBuild
+```
+
+#### Run it
+
+```sh
+docker run -p 8080:8080 --name imgflip-api imgflip-lovers/imgflip-api
+```
 
 ## :books: Documentation
 
