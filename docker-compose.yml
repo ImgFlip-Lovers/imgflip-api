@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+  imgflip-api:
+    image: imgflip-lovers/imgflip-api
+    hostname: imgflip-api
+    container_name: imgflip-api
+    ports:
+      - "8080:8080"
+
+  # Redocly/redoc
+  # https://github.com/Redocly/redoc
+  redoc:
+    image: redocly/redoc
+    hostname: redoc
+    container_name: redoc
+    depends_on:
+      - imgflip-api
+    ports:
+      - "8081:80"
+    environment:
+      SPEC_URL: http://localhost:8080/v3/api-docs
