@@ -15,7 +15,7 @@
     <description>REST API for Imgflip</description>
     <properties>
         <java.version>1.8</java.version>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.2.13</logback.version>
         <springdoc-openapi-ui.version>1.4.8</springdoc-openapi-ui.version>
         <imgflip4j.version>2.1</imgflip4j.version>
         <docker.from>openjdk:8-jdk-alpine</docker.from>
